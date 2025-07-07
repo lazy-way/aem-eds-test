@@ -1,1 +1,60 @@
-<updated .carousel class content from source with theme variables adjusted to match destination styles.css structure>
+/* carousel.css content */
+.carousel-slides-container {
+    position: relative;
+    overflow: hidden;
+    background: var(--light-color);
+}
+.carousel-slides {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    scroll-snap-type: x mandatory;
+    overflow-x: auto;
+}
+.carousel-slide {
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+    position: relative;
+    display: block;
+    width: 100%;
+}
+.carousel-slide[aria-hidden="true"] {
+    display: none;
+}
+.carousel-navigation-buttons {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+.slide-prev,
+.slide-next {
+    background: var(--link-color);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    height: 40px;
+    width: 40px;
+}
+.carousel-slide-indicators {
+    display: flex;
+    justify-content: center;
+    margin-top: 16px;
+    list-style: none;
+    padding: 0;
+}
+.carousel-slide-indicator button {
+    background-color: var(--light-color);
+    border: none;
+    cursor: pointer;
+    margin: 0 4px;
+    padding: 8px;
+}
+.carousel-slide-indicator button[disabled] {
+    background-color: var(--link-color);
+    pointer-events: none;
+}
