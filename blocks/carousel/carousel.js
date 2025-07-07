@@ -1,0 +1,1 @@
+console.log('Carousel block JavaScript file placeholder.');
