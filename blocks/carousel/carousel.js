@@ -1,9 +1,5 @@
 import { fetchPlaceholders } from '../../scripts/placeholders.js';
 
-/**
- * Updates the active slide, ensuring visibility and accessibility.
- * @param {HTMLElement} slide - The current slide element.
- */
 function updateActiveSlide(slide) {
   const block = slide.closest('.carousel');
   const slideIndex = parseInt(slide.dataset.slideIndex, 10);
@@ -28,11 +24,6 @@ function updateActiveSlide(slide) {
     }
   });
 }
-/**
- * Shows a specific slide within the carousel.
- * @param {HTMLElement} block - The carousel block element.
- * @param {number} slideIndex - The index of the slide to show.
- */
 function showSlide(block, slideIndex = 0) {
   const slides = block.querySelectorAll('.carousel-slide');
   let realSlideIndex = slideIndex < 0 ? slides.length - 1 : slideIndex;
@@ -45,10 +36,6 @@ function showSlide(block, slideIndex = 0) {
     behavior: 'smooth',
   });
 }
-/**
- * Assigns event bindings for carousel functionality.
- * @param {HTMLElement} block - The carousel block element.
- */
 function bindEvents(block) {
   const slideIndicators = block.querySelector('.carousel-slide-indicators');
   if (!slideIndicators) return;
@@ -73,13 +60,6 @@ function bindEvents(block) {
     slideObserver.observe(slide);
   });
 }
-/**
- * Creates individual slides in the carousel using DOM elements.
- * @param {HTMLElement} row - The row element.
- * @param {number} slideIndex - The slide index.
- * @param {string} carouselId - The ID for the carousel.
- * @returns {HTMLElement} - A slide element.
- */
 function createSlide(row, slideIndex, carouselId) {
   const slide = document.createElement('li');
   slide.dataset.slideIndex = slideIndex;
@@ -96,10 +76,6 @@ function createSlide(row, slideIndex, carouselId) {
   return slide;
 }
 let carouselId = 0;
-/**
- * Main decoration function for the carousel block.
- * @param {HTMLElement} block - The carousel block element.
- */
 export default async function decorate(block) {
   carouselId += 1;
   block.setAttribute('id', `carousel-${carouselId}`);

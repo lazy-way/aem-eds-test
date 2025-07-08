@@ -1,22 +1,15 @@
-/*
- * Script to fetch placeholders, migrated for Carousel functionality
- */
-import { toCamelCase } from '../../scripts/aem.js';
+/* Fetches placeholders object. */
+import { toCamelCase } from './aem.js';
+
 export async function fetchPlaceholders(prefix = 'default') {
   window.placeholders = window.placeholders || {};
   if (!window.placeholders[prefix]) {
     window.placeholders[prefix] = new Promise((resolve) => {
       fetch(`${prefix === 'default' ? '' : prefix}/placeholders.json`)
-        .then((resp) => {
-          if (resp.ok) {
-            return resp.json();
-          }
-          return {};
-        })
+        .then((resp) => resp.ok ? resp.json() : {})
         .then((json) => {
           const placeholders = {};
-          json.data
-            .filter((placeholder) => placeholder.Key)
+          json.data.filter((placeholder) => placeholder.Key)
             .forEach((placeholder) => {
               placeholders[toCamelCase(placeholder.Key)] = placeholder.Text;
             });
