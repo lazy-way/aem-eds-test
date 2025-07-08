@@ -1,6 +1,7 @@
 /* Fetches placeholders object. */
 import { toCamelCase } from './aem.js';
 
+// eslint-disable-next-line import/prefer-default-export
 export async function fetchPlaceholders(prefix = 'default') {
   window.placeholders = window.placeholders || {};
   if (!window.placeholders[prefix]) {
