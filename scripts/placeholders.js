@@ -10,7 +10,6 @@
  * governing permissions and limitations under the License. */
 import { toCamelCase } from "./aem.js";
 
-/* eslint-disable */
 export async function fetchPlaceholders(prefix = "default") {
   window.placeholders = window.placeholders || {};
   if (!window.placeholders[prefix]) {
