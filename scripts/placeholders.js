@@ -1,12 +1,3 @@
-/* Migration of placeholders.js */  
-import { toCamelCase } from './aem.js';
-
-/**
- * Gets placeholders object.
- * @param {string} [prefix] Location of placeholders
- * @returns {object} Window placeholders object
- */
-
 export async function fetchPlaceholders(prefix = 'default') {
   window.placeholders = window.placeholders || {};
   if (!window.placeholders[prefix]) {
@@ -17,8 +8,7 @@ export async function fetchPlaceholders(prefix = 'default') {
             return resp.json();
           }
           return {};
-        })
-        .then((json) => {
+        }).then((json) => {
           const placeholders = {};
           json.data
             .filter((placeholder) => placeholder.Key)
@@ -27,8 +17,7 @@ export async function fetchPlaceholders(prefix = 'default') {
             });
           window.placeholders[prefix] = placeholders;
           resolve(window.placeholders[prefix]);
-        })
-        .catch(() => {
+        }).catch(() => {
           // error loading placeholders
           window.placeholders[prefix] = {};
           resolve(window.placeholders[prefix]);
@@ -37,4 +26,3 @@ export async function fetchPlaceholders(prefix = 'default') {
   }
   return window.placeholders[`${prefix}`];
 }
-
