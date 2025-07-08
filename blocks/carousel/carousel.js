@@ -1,4 +1,5 @@
 /* eslint-disable */
+
 import { fetchPlaceholders } from '../../scripts/placeholders.js';
 
 function updateActiveSlide(slide) {
@@ -18,11 +19,10 @@ function updateActiveSlide(slide) {
   });
   const indicators = block.querySelectorAll('.carousel-slide-indicator');
   indicators.forEach((indicator, idx) => {
-    const button = indicator.querySelector('button');
     if (idx !== slideIndex) {
-      button.removeAttribute('disabled');
+      indicator.querySelector('button').removeAttribute('disabled');
     } else {
-      button.setAttribute('disabled', 'true');
+      indicator.querySelector('button').setAttribute('disabled', 'true');
     }
   });
 }
@@ -114,7 +114,9 @@ export default async function decorate(block) {
       const indicator = document.createElement('li');
       indicator.classList.add('carousel-slide-indicator');
       indicator.dataset.targetSlide = idx;
-      indicator.innerHTML = `<button type="button" aria-label="${placeholders.showSlide || 'Show Slide'} ${idx + 1} ${placeholders.of || 'of'} ${rows.length}"></button>`;
+      indicator.innerHTML = `
+        <button type="button" aria-label="${placeholders.showSlide || 'Show Slide'} ${idx + 1} ${placeholders.of || 'of'} ${rows.length}"></button>
+      `;
       slideIndicators.append(indicator);
     }
     row.remove();
