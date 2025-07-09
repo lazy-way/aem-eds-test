@@ -1,0 +1,28 @@
+{
+  "data": [
+    {
+      "Key": "carousel",
+      "Text": "Image Carousel"
+    },
+    {
+      "Key": "carouselSlideControls",
+      "Text": "Slide Navigation Controls"
+    },
+    {
+      "Key": "previousSlide",
+      "Text": "Go to Previous Slide"
+    },
+    {
+      "Key": "nextSlide",
+      "Text": "Go to Next Slide"
+    },
+    {
+      "Key": "showSlide",
+      "Text": "Display Slide"
+    },
+    {
+      "Key": "of",
+      "Text": "of"
+    }
+  ]
+}
