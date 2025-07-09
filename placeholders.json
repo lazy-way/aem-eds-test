@@ -1,0 +1,28 @@
+{
+  "data": [
+    {
+      "Key": "carousel",
+      "Text": "Carousel"
+    },
+    {
+      "Key": "carouselSlideControls",
+      "Text": "Slide Controls"
+    },
+    {
+      "Key": "previousSlide",
+      "Text": "Previous"
+    },
+    {
+      "Key": "nextSlide",
+      "Text": "Next"
+    },
+    {
+      "Key": "showSlide",
+      "Text": "Show Slide"
+    },
+    {
+      "Key": "of",
+      "Text": "of"
+    }
+  ]
+}
